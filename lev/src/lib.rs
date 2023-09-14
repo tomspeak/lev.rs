@@ -82,7 +82,11 @@ mod tests {
         assert_eq!(lev("tom", "tom"), 0);
         assert_eq!(lev("gambol", "gumbo"), 2);
         assert_eq!(lev("kelm", "hello"), 3);
-        assert_eq!(lev("christ", "christmas"), 4);
+        assert_eq!(lev("christ", "christmas"), 3);
+        assert_eq!(lev("🍆", "🍆"), 0);
+        assert_eq!(lev("🤠", "🍆"), 1);
+        assert_eq!(lev("你好", "你好"), 0);
+        assert_eq!(lev("你好", "你"), 3);
     }
 }
 
