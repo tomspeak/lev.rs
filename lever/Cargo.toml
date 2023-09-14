@@ -1,0 +1,16 @@
+[package]
+name = "lever"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+codegen-units = 1
+lto = true
+debug = 1
+
+[features]
+dhat-heap = []
+
+[dependencies]
+dhat = "0.3.2"
+"lev" = { path = "../lev" }

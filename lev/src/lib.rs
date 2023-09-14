@@ -40,13 +40,11 @@ pub fn lev(s: &str, t: &str) -> usize {
         }
     }
 
-    pretty_print(&grid, s, t);
-
     grid[n][m] as usize
 }
 
 #[inline]
-fn pretty_print(grid: &Vec<Vec<usize>>, s: &str, t: &str) {
+pub fn pretty_print(grid: &Vec<Vec<usize>>, s: &str, t: &str) {
     let t_chars: Vec<char> = t.chars().collect();
 
     print!("{:6}", "");
