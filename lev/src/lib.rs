@@ -23,10 +23,10 @@ pub fn lev(s: &str, t: &str) -> usize {
     }
 
     for i in 1..=n {
-        let sc = s.chars().nth(i - 1).unwrap_or(' '); // @BUG: this is dumb, if strings arent
-                                                      // normalized this will cause errors
+        let sc = s.chars().nth(i - 1).unwrap_or('\0');
+
         for j in 1..=m {
-            let tc = t.chars().nth(j - 1).unwrap_or(' ');
+            let tc = t.chars().nth(j - 1).unwrap_or('\0');
 
             let cost = if sc == tc { 0 } else { 1 };
 
@@ -77,20 +77,12 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let result = lev("honda", "hyundai");
-        assert_eq!(result, 3);
-
-        let result = lev("sittmg", "setting");
-        assert_eq!(result, 3);
-
-        let result = lev("tom", "tom");
-        assert_eq!(result, 0);
-
-        let result = lev("gambol", "gumbo");
-        assert_eq!(result, 2);
-
-        let result = lev("kelm", "hello");
-        assert_eq!(result, 3);
+        assert_eq!(lev("honda", "hyundai"), 3);
+        assert_eq!(lev("sittmg", "setting"), 3);
+        assert_eq!(lev("tom", "tom"), 0);
+        assert_eq!(lev("gambol", "gumbo"), 2);
+        assert_eq!(lev("kelm", "hello"), 3);
+        assert_eq!(lev("christ", "christmas"), 4);
     }
 }
 
